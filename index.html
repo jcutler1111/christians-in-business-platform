@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christians in Business - Free Business Directory for Your Church</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0f1e;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #0a0f1e 0%, #141414 100%);
+            padding: 100px 0 80px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .eyebrow {
+            color: #00d9ff;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero h1 .highlight { color: #fbbf24; }
+        .hero-subheadline {
+            font-size: 1.4rem;
+            color: #9ca3af;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #fbbf24;
+            color: #0a0f1e;
+            font-size: 1.1rem;
+            font-weight: 700;
+            padding: 18px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(251, 191, 36, 0.3);
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(251, 191, 36, 0.4);
+        }
+        .micro-reassurance {
+            margin-top: 16px;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        
+        /* Sections */
+        .section { padding: 80px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        .section h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #00d9ff;
+        }
+        
+        /* Problem */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .problem-card {
+            background: #141414;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 32px;
+        }
+        .problem-card h4 {
+            color: #ef4444;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+        
+        /* Solution */
+        .solution-box {
+            background: linear-gradient(135deg, #1a1a2e 0%, #141414 100%);
+            border: 1px solid rgba(0,217,255,0.2);
+            border-radius: 16px;
+            padding: 48px;
+            margin-top: 48px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .feature-icon {
+            color: #10b981;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        /* How It Works */
+        .timeline {
+            margin-top: 48px;
+        }
+        .timeline-item {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+            padding: 24px;
+            background: #141414;
+            border-radius: 12px;
+            border-left: 4px solid #00d9ff;
+        }
+        .timeline-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #00d9ff;
+            min-width: 60px;
+        }
+        
+        /* Pricing */
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .pricing-card {
+            background: #141414;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+        .pricing-card.featured {
+            border-color: #fbbf24;
+            transform: scale(1.05);
+        }
+        .pricing-card .badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fbbf24;
+            color: #0a0f1e;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fbbf24;
+            margin: 24px 0;
+        }
+        .price-note {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+            margin: 24px 0;
+        }
+        .pricing-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .pricing-card li:before {
+            content: "✓ ";
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        /* ROI Calculator */
+        .roi-box {
+            background: linear-gradient(135deg, #1a2e1a 0%, #141414 100%);
+            border: 1px solid #10b981;
+            border-radius: 16px;
+            padding: 48px;
+            margin-top: 48px;
+            text-align: center;
+        }
+        .roi-box h3 {
+            color: #10b981;
+            font-size: 1.75rem;
+            margin-bottom: 24px;
+        }
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+        .roi-item {
+            background: rgba(0,0,0,0.3);
+            padding: 24px;
+            border-radius: 8px;
+        }
+        .roi-item .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fbbf24;
+        }
+        .roi-item .label {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+        
+        /* FAQ */
+        .faq-item {
+            background: #141414;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+        .faq-item h4 {
+            color: #00d9ff;
+            margin-bottom: 12px;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, #0a0f1e 0%, #1a1a2e 100%);
+            padding: 100px 0;
+            text-align: center;
+        }
+        .final-cta h2 {
+            font-size: 3rem;
+            margin-bottom: 24px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0a0f1e;
+            padding: 40px 0;
+            text-align: center;
+            color: #6b7280;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .roi-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <p class="eyebrow">Free Business Directory for Churches</p>
+            <h1>Help Your Business Owners <span class="highlight">Find Each Other</span></h1>
+            <p class="hero-subheadline">A private, branded directory where your members list their businesses, connect with one another, and build community — completely free for your church</p>
+            <a href="#pricing" class="cta-button">Get Your Free Directory</a>
+            <p class="micro-reassurance">No credit card required • Setup in 48 hours • Cancel anytime</p>
+        </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="section">
+        <div class="container">
+            <h2>The Disconnection Problem</h2>
+            <p style="text-align: center; color: #9ca3af; max-width: 700px; margin: 0 auto 48px; font-size: 1.1rem;">Your business owners are sitting in the same pews, but they don't know what each other does.</p>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h4>❌ Isolation</h4>
+                    <p>Your entrepreneurs feel alone in their work challenges. They have no one in the church who understands business.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>❌ Missed Connections</h4>
+                    <p>The web designer doesn't know the pastor needs a website. The accountant doesn't know the church member just started a business.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>❌ Sunday-Only Community</h4>
+                    <p>Church happens on Sunday morning. But work happens Monday through Saturday. Your members need connection every day.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>❌ Lost to the World</h4>
+                    <p>Business owners leave churches because they don't feel seen. Their work isn't treated as ministry.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section class="section" style="background: #0d1117;">
+        <div class="container">
+            <h2>A Simple Solution: <span style="color: #fbbf24;">Connection, Not Extraction</span></h2>
+            
+            <div class="solution-box">
+                <h3>Your Own Branded Business Directory</h3>
+                <p style="color: #9ca3af; font-size: 1.1rem; margin-bottom: 32px;">We build a private directory for your church. Your members list their businesses. They find each other. They support each other. No selling. Just connection.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <div>
+                            <strong>100% Free to Start</strong>
+                            <p style="color: #6b7280;">No cost to your church. No risk. Just value.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <div>
+                            <strong>Your Church Branding</strong>
+                            <p style="color: #6b7280;">Directory matches your church colors and logo.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <div>
+                            <strong>Member-Only Access</strong>
+                            <p style="color: #6b7280;">Private. Secure. Only your church members.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <div>
+                            <strong>Mobile-Friendly</strong>
+                            <p style="color: #6b7280;">Works on every device. No app needed.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <div>
+                            <strong>Search & Filter</strong>
+                            <p style="color: #6b7280;">Find businesses by category, location, service.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <div>
+                            <strong>Setup in 48 Hours</strong>
+                            <p style="color: #6b7280;">We handle everything. You just announce it.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section">
+        <div class="container">
+            <h2>How It Works</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">01</div>
+                    <div>
+                        <h4>You Say Yes</h4>
+                        <p style="color: #9ca3af;">Fill out a 5-minute form. We collect your logo, colors, and church info.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">02</div>
+                    <div>
+                        <h4>We Build It</h4>
+                        <p style="color: #9ca3af;">Our team creates your branded directory in 48 hours.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">03</div>
+                    <div>
+                        <h4>You Announce It</h4>
+                        <p style="color: #9ca3af;">We give you email templates and slides. You invite your members.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">04</div>
+                    <div>
+                        <h4>Members Connect</h4>
+                        <p style="color: #9ca3af;">Business owners create listings. They find each other. Community forms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section" id="pricing" style="background: #0d1117;">
+        <div class="container">
+            <h2>Three Ways to Participate</h2>
+            <p style="text-align: center; color: #9ca3af; max-width: 600px; margin: 0 auto 48px;">Start free. Upgrade when you see value. Or invest in your members from day one.</p>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>Free Tier</h3>
+                    <p style="color: #6b7280;">Start here. No risk.</p>
+                    <div class="price">$0</div>
+                    <p class="price-note">Forever free</p>
+                    <ul>
+                        <li>Complete business directory</li>
+                        <li>Your church branding</li>
+                        <li>Unlimited member listings</li>
+                        <li>Search & filter</li>
+                        <li>Mobile-friendly</li>
+                        <li>Email support</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="padding: 16px 32px; font-size: 1rem;">Get Started Free</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <span class="badge">MOST POPULAR</span>
+                    <h3>Church Investment</h3>
+                    <p style="color: #6b7280;">Invest in your business owners</p>
+                    <div class="price">$50</div>
+                    <p class="price-note">per business (one-time)</p>
+                    <ul>
+                        <li>Everything in Free</li>
+                        <li>Lifetime Premium listings for ALL members</li>
+                        <li>Featured placement</li>
+                        <li>Priority support</li>
+                        <li>Quarterly connection reports</li>
+                        <li>Member success stories</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="padding: 16px 32px; font-size: 1rem;">Invest in Your Members</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Sponsor Model</h3>
+                    <p style="color: #6b7280;">Zero cost to church</p>
+                    <div class="price">$0</div>
+                    <p class="price-note">for the church</p>
+                    <ul>
+                        <li>Everything in Free</li>
+                        <li>Local businesses sponsor directory</li>
+                        <li>5 sponsors × $500 = $2,500</li>
+                        <li>Sponsors get featured placement</li>
+                        <li>Church pays nothing</li>
+                        <li>We handle sponsor recruitment</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="padding: 16px 32px; font-size: 1rem;">Learn About Sponsors</a>
+                </div>
+            </div>
+            
+            <div class="roi-box">
+                <h3>📊 The Math Works</h3>
+                <p style="color: #9ca3af; margin-bottom: 32px;">Example: Church with 100 business owners</p>
+                <div class="roi-grid">
+                    <div class="roi-item">
+                        <div class="number">100</div>
+                        <div class="label">Business Owners</div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="number">$50</div>
+                        <div class="label">Per Business</div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="number">$5,000</div>
+                        <div class="label">Total Investment</div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="number">$720</div>
+                        <div class="label">Value Per Member</div>
+                    </div>
+                </div>
+                <p style="color: #9ca3af; margin-top: 32px; font-size: 0.9rem;">Each member receives a $720 lifetime value. Church invests $5,000. Members receive $72,000 in total value.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+        <div class="container">
+            <h2>What Pastors Are Saying</h2>
+            
+            <div class="problem-grid">
+                <div class="problem-card" style="border-color: #10b981;">
+                    <p style="font-style: italic; margin-bottom: 16px;">"Our business owners finally feel seen. One member told me, 'I didn't know the church cared about my work.' That hit me. This isn't about money. It's about pastoral care for the other 6 days of the week."</p>
+                    <p style="color: #00d9ff; font-weight: 600;">— Pastor Mike, 800-member church</p>
+                </div>
+                <div class="problem-card" style="border-color: #10b981;">
+                    <p style="font-style: italic; margin-bottom: 16px;">"We had 47 businesses listed in the first month. 6 new partnerships formed. A realtor and a contractor started working together. A graphic designer helped rebrand our youth ministry. The ROI is obvious."</p>
+                    <p style="color: #00d9ff; font-weight: 600;">— Pastor Sarah, 1,200-member church</p>
+                </div>
+                <div class="problem-card" style="border-color: #10b981;">
+                    <p style="font-style: italic; margin-bottom: 16px;">"I was skeptical. 'Another platform asking for money.' But the free tier convinced me. We started there, saw the value, then invested in our members. Best decision we made this year."</p>
+                    <p style="color: #00d9ff; font-weight: 600;">— Pastor David, 400-member church</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" style="background: #0d1117;">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h4>"Is this just a way to sell to our members?"</h4>
+                <p style="color: #9ca3af;">No. This is about connection, not extraction. Think of it like a church directory, but for work. Members choose to list their businesses. They choose who to contact. No one is marketed to without opting in.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>"What if we don't have many business owners?"</h4>
+                <p style="color: #9ca3af;">You'd be surprised. Most churches have 15-20% of members who own businesses or are self-employed. A 500-person church typically has 75+ business owners. Plus professionals (lawyers, doctors, consultants) who also benefit.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>"How is this different from Facebook or LinkedIn?"</h4>
+                <p style="color: #9ca3af;">Those are public platforms with algorithms, ads, and noise. This is private, church-only, and focused. Your members aren't competing with the world. They're supporting each other.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>"What if we start free and want to upgrade later?"</h4>
+                <p style="color: #9ca3af;">Easy. You can invest in your members anytime. We'll prorate based on current listings. Many churches start free, see the value, then upgrade within 90 days.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>"Who owns the data?"</h4>
+                <p style="color: #9ca3af;">You do. The church owns the directory. Members own their listings. We just provide the platform. If you ever leave, you can export everything.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>"How do we get members to actually use it?"</h4>
+                <p style="color: #9ca3af;">We give you a complete launch kit: email templates, Sunday slides, social posts, and a 30-day rollout plan. Churches that follow the plan see 60%+ adoption in the first month.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Your Business Owners Are Waiting.<br>Give Them <span style="color: #fbbf24;">Connection</span>.</h2>
+            <p style="color: #9ca3af; font-size: 1.25rem; margin-bottom: 32px;">Start free. See the value. Invest when you're ready.</p>
+            <a href="#" class="cta-button" style="font-size: 1.5rem; padding: 24px 56px;">Get Your Free Directory</a>
+            <p class="micro-reassurance" style="margin-top: 24px;">Setup in 48 hours • No credit card required • Cancel anytime</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Christians in Business. All rights reserved.</p>
+            <p style="margin-top: 8px; font-size: 0.9rem;">Helping churches steward their marketplace members.</p>
+        </div>
+    </footer>
+</body>
+</html>
